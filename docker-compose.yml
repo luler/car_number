@@ -1,0 +1,16 @@
+version: "2"
+services:
+  car_number:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: car_number:latest
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1m"
+        max-file: "1"
+    ports:
+      - 8000:8000
+    volumes:
+      - ./:/root/car_number
